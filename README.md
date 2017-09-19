@@ -1,9 +1,11 @@
-# django-bootstrap3-datetimepicker
+# django-bootstrap-datepicker
 
-This package uses [Bootstrap v3 datetimepicker widget version 4](https://github.com/Eonasdan/bootstrap-datetimepicker).
+This package is **compatible with both Bootstrap 3 and 4**, by giving the option to use a FontAwesome icon rather than a Glyphicon.
 
-This project was originally a fork of https://github.com/nkunihiko/django-bootstrap3-datetimepicker, 
-it now has the following breaking changes:
+This package is intended to be used with [bootstrap-datepicker](https://github.com/uxsolutions/bootstrap-datepicker) and has been tested with v1.7.1.
+
+This project was originally a fork of [nkunihiko/django-bootstrap3-datetimepicker](https://github.com/nkunihiko/django-bootstrap3-datetimepicker) and hence similar to [qoobic/django-bootstrap3-datepicker](https://github.com/qoobic/django-bootstrap3-datepicker), 
+but it now has the following breaking changes:
 
 * js/css files are no longer included in the project, managing them is up to the user, eg. using 
 [grablib](https://github.com/samuelcolvin/grablib).
@@ -12,31 +14,26 @@ it now has the following breaking changes:
 * remove support for python 2.6 and associated clean up
 
 ## Install
-
-    pip install django-bootstrap3-datetimepicker-2
+1. Run `pip install django-bootstrap-datepicker`
+2. Add `bootstrap_datepicker` to your `INSTALLED_APPS`
 
 ## Example
 
 #### forms.py
 
 ```python
-from bootstrap3_datetime.widgets import DateTimePicker
+from bootstrap_datepicker.widgets import DatePicker
 from django import forms
 
   class ToDoForm(forms.Form):
       todo = forms.CharField(
           widget=forms.TextInput(attrs={"class": "form-control"}))
       date = forms.DateField(
-          widget=DateTimePicker(options={"format": "YYYY-MM-DD"}))
-      reminder = forms.DateTimeField(
-          required=False,
-          widget=DateTimePicker(options={"format": "YYYY-MM-DD HH:mm"}))
+          widget=DatePicker(options={"format": "YYYY-MM-DD"}, fontawesome=True))
 ```
 
 The `options` will be passed to the JavaScript datetimepicker instance. 
-Available `options` are explained in the following documents:
-
-* http://eonasdan.github.io/bootstrap-datetimepicker/
+Available `options` are explained in the [bootstrap-datepicker docs](https://bootstrap-datepicker.readthedocs.io/en/stable/options.html)
 
 You don't need to set the `language` option, 
 because it will be set the current language of the thread automatically.
@@ -69,6 +66,7 @@ draw out your HTML manually.
 
 * Python >= 2.7
 * Django >= 1.8
-* Bootstrap == 3.X
+* Bootstrap >= 3
+* FontAwesome >= 1.0 if using Bootstrap 4+
 * Moment >= 2.10.6
-* bootstrap-datetimepicker >= 4.15.35
+* bootstrap-datepicker >= 1.7.1
