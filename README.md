@@ -14,7 +14,7 @@ but it now has the following breaking changes:
 * remove support for python 2.6 and associated clean up
 
 ## Install
-1. Run `pip install django-bootstrap-datepicker`
+1. Run `pip install django-bootstrap-datepicker-widget`
 2. Add `bootstrap_datepicker` to your `INSTALLED_APPS`
 
 ## Example
