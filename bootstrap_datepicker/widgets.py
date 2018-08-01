@@ -97,7 +97,7 @@ class DatePicker(DateInput):
 
         if value != '':
             # Only add the 'value' attribute if a value is non-empty.
-            input_attrs['value'] = force_text(self._format_value(value))
+            input_attrs['value'] = force_text(self.format_value(value))
         input_attrs = {key: conditional_escape(val) for key, val in input_attrs.items()}
         if not self.picker_id:
              self.picker_id = (input_attrs.get('id', '') +
