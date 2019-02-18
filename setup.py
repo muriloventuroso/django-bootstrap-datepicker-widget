@@ -10,7 +10,7 @@ setup(
     name='django-bootstrap-datepicker-widget',
     packages=['bootstrap_datepicker'],
     include_package_data=True,
-    version='0.1',
+    version='0.2',
     description='Bootstrap 3 and 4 compatible Datepicker widget for Django.',
     long_description=long_description,
     author='Nakahara Kunihiko/Samuel Colvin/Jack Weatherilt',
