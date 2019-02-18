@@ -35,10 +35,10 @@ class DatePicker(DateInput):
 
     html_template = """
     <div%(div_attrs)s>
-      <input%(input_attrs)s/>
       <span class="input-group-addon">
         %(icon_template)s
       </span>
+      <input%(input_attrs)s/>
     </div>"""
 
     glyphicon_template = """
@@ -46,7 +46,7 @@ class DatePicker(DateInput):
     """
 
     fontawesome_template = """
-        <i%(icon_attrs)s></i> 
+        <i%(icon_attrs)s></i>
     """
 
     js_template = """
@@ -79,7 +79,7 @@ class DatePicker(DateInput):
         self.div_attrs = div_attrs and div_attrs.copy() or {}
         self.icon_attrs = icon_attrs and icon_attrs.copy() or {}
         self.picker_id = self.div_attrs.get('id') or None
-        if options == False:  # datepicker will not be initalized when options is False
+        if options is False:  # datepicker will not be initalized when options is False
             self.options = False
         else:
             self.options = options and options.copy() or {}
@@ -97,11 +97,10 @@ class DatePicker(DateInput):
 
         if value != '':
             # Only add the 'value' attribute if a value is non-empty.
-            input_attrs['value'] = force_text(self._format_value(value))
+            input_attrs['value'] = force_text(self.format_value(value))
         input_attrs = {key: conditional_escape(val) for key, val in input_attrs.items()}
         if not self.picker_id:
-             self.picker_id = (input_attrs.get('id', '') +
-                               '_pickers').replace(' ', '_')
+            self.picker_id = (input_attrs.get('id', '') + '_pickers').replace(' ', '_')
         self.div_attrs['id'] = self.picker_id
         picker_id = conditional_escape(self.picker_id)
         div_attrs = {key: conditional_escape(val) for key, val in self.div_attrs.items()}
